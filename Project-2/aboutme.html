@@ -5,47 +5,52 @@
 	<title>Surya Coding</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/animate.css">
+	<script src="js/wow.min.js"></script>
+	<script>
+      new WOW().init();
+    </script>
 
-  <style>
-  body 
-  .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-  }
-  .bg-1 { 
-      background-color: #1abc9c;
-      color: #ffffff;
-  }
-  .bg-2 { 
-      background-color: #474e5d;
-      color: #ffffff;
-  }
-  .bg-3 { 
-      background-color: #ffffff;
-      color: #555555;
-  }
-  .bg-4 { 
-      background-color: #2f2f2f;
-      color: #fff;
-  }
-  .container-fluid {
-      padding-top: 70px;
-      padding-bottom: 70px;
-  }
-  </style>
+	<style>
+	body 
+	.navbar {
+		margin-bottom: 0;
+		border-radius: 0;
+	}
+	.bg-1 { 
+		background-color: #1abc9c;
+		color: #ffffff;
+	}
+	.bg-2 { 
+		background-color: #474e5d;
+		color: #ffffff;
+	}
+	.bg-3 { 
+		background-color: #ffffff;
+		color: #555555;
+	}
+	.bg-4 { 
+		background-color: #2f2f2f;
+		color: #fff;
+	}
+	.container-fluid {
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+</style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse">
 		<div class="container"; background: url>
-		
+			
 			<div class="navbar-header">
-			 	<a class="navbar-brand" href="INDEX.HTML">
-        		<img alt="Brand" src="SC.png" height=20px>
-        		</a>
-        		
+				<a class="navbar-brand" href="INDEX.HTML">
+					<img alt="Brand" src="SC.png" height=20px>
+				</a>
+				
 
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 					<span class="sr-only">Toggle navigation</span>
@@ -137,61 +142,67 @@
 		</div>
 	</div>
 
-<!-- First Container -->
-<div class="container-fluid bg-1 text-center">
-  <h3 class="margin"><b>Who Am I ?</b></h3>
-  <img src="surya.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-  <h3>I'm Just Ordinary Boy Living In An Extraordinary World</h3>
-</div>
-
-<!-- Second Container -->
-<div class="container-fluid bg-2 text-center">
-  <h3 class="margin"><b>What Am I ?</b></h3>
-  <p><b>Hello , it's me ! Namaku Surya. aku seorang mahasiswa jurusan Teknik Informatika. Aku suka sekali coding, main game, dan baca buku. Salam kenal dariku yaa :) </b></p>
-  <p>Aku pengen cerita sedikit. Pernahkah terfikir, terkadang kita lupa siapa diri kita sebenarnya hanya untuk menjadi perhatian di antara orang lain. Membungkus diri dalam sebuah kotak kecil yang kita buat sendiri. Pernahkah untuk sekali saja, saat kita terbangun lalu mengucapkan salam kepada diri kita sendiri ?  Ya terkadang kita menjadi orang lain untuk bisa membuat keberadaan kita dilihat oleh orang lain tapi , apakah itu baik ? Tentu saja tidak ! Memang terkadang saat kita melihat orang yang lebih WAH dari diri kita , membuat kita merasa malu dan mengasingkan diri , tapi tahukah kamu ? orang yang kamu lihat lebih WAH dari dirimu adalah Orang yang mungkin juga sedang memakai topeng untuk memunculkan keberadaannya di antara orang lain ? Jadi , Percayalah pada dirimu sendiri ! So, tunggu apalagi ? kita hanya hidup satu kali jadi lepaskan topeng mu kemudian berlarilah dengan dirimu sendiri :)</p>
-  <p><b>" Just Be Yourself And Then You Will Really Shine ! "</b></p>
-</div>
-
-<!-- Third Container (Grid) -->
-<div class="container-fluid bg-3 text-center">    
-  <h3 class="margin">Where To Find Me ?</h3><br>
-  <div class="row">
-    <div class="col-sm-4">
-      <p><b>Contact</b></p>
-      <p>089530280629</p>
-      <img src="elang1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4"> 
-      <p><b>Address</b></p>
-      <p>Surabaya - Indonesia<p>
-      <img src="elang2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4"> 
-      <p><b>College</b></p>
-      <p>Narotama University</p>
-      <img src="elang3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<div class="clearfix"></div>
-		
-	<nav class="navbar navbar-default" style="bottom: 0;margin: 0">
-		<div class="container">	
-			<center>
-				
-			<ul class="nav navbar-nav">
-				<li><a href="#">Copyright @ 2018 Surya Coding. All rights reserved.</a></li>				
-			</ul>
-
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Developed by www.suryacoding.com</a></li>									
-			</ul>
-			</center>		
+	<!-- First Container -->
+	<div class="container-fluid bg-1 text-center">
+		<div class="flip animated">
+		<h3 class="margin"><b>Who Am I ?</b></h3>
 		</div>
+		<div class="fadeInDown animated">
+		<img src="surya.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+		</div>
+		<div class="flipInY left animated">
+		<h3>I'm Just Ordinary Boy Living In An Extraordinary World</h3>
+	    </div>
+	</div>
+
+	<!-- Second Container -->
+	<div class="container-fluid bg-2 text-center">
+		<h3 class="margin"><b>What Am I ?</b></h3>
+		<p><b>Hello , it's me ! Namaku Surya. aku seorang mahasiswa jurusan Teknik Informatika. Aku suka sekali coding, main game, dan baca buku. Salam kenal dariku yaa :) </b></p>
+		<p>Aku pengen cerita sedikit. Pernahkah terfikir, terkadang kita lupa siapa diri kita sebenarnya hanya untuk menjadi perhatian di antara orang lain. Membungkus diri dalam sebuah kotak kecil yang kita buat sendiri. Pernahkah untuk sekali saja, saat kita terbangun lalu mengucapkan salam kepada diri kita sendiri ?  Ya terkadang kita menjadi orang lain untuk bisa membuat keberadaan kita dilihat oleh orang lain tapi , apakah itu baik ? Tentu saja tidak ! Memang terkadang saat kita melihat orang yang lebih WAH dari diri kita , membuat kita merasa malu dan mengasingkan diri , tapi tahukah kamu ? orang yang kamu lihat lebih WAH dari dirimu adalah Orang yang mungkin juga sedang memakai topeng untuk memunculkan keberadaannya di antara orang lain ? Jadi , Percayalah pada dirimu sendiri ! So, tunggu apalagi ? kita hanya hidup satu kali jadi lepaskan topeng mu kemudian berlarilah dengan dirimu sendiri :)</p>
+		<p><b>" Just Be Yourself And Then You Will Really Shine ! "</b></p>
+	</div>
+
+	<!-- Third Container (Grid) -->
+	<div class="container-fluid bg-3 text-center">    
+		<h3 class="margin">Where To Find Me ?</h3><br>
+		<div class="row">
+			<div class="col-sm-4">
+				<p><b>Contact</b></p>
+				<p>089530280629</p>
+				<img src="elang1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+			</div>
+			<div class="col-sm-4"> 
+				<p><b>Address</b></p>
+				<p>Surabaya - Indonesia<p>
+					<img src="elang2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+				</div>
+				<div class="col-sm-4"> 
+					<p><b>College</b></p>
+					<p>Narotama University</p>
+					<img src="elang3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div class="clearfix"></div>
 		
-	</nav>
-	
-</body>
-</html>
+		<nav class="navbar navbar-default" style="bottom: 0;margin: 0">
+			<div class="container">	
+				<center>
+					
+					<ul class="nav navbar-nav">
+						<li><a href="#">Copyright @ 2018 Surya Coding. All rights reserved.</a></li>				
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Developed by www.suryacoding.com</a></li>									
+					</ul>
+				</center>		
+			</div>
+			
+		</nav>
+		
+	</body>
+	</html>
