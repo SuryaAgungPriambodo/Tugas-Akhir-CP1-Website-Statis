@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Surya Coding</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/animate.css">
+	<script src="js/wow.min.js"></script>
+	<script>
+		new WOW().init();
+	</script>
+</head>
+
+<body>
+	
+	
+	<nav class="navbar navbar-inverse">
+		<div class="container"; background: url>
+			
+			<div class="navbar-header">
+				<a class="navbar-brand" href="INDEX.HTML">
+					<img alt="Brand" src="SC.png" height=20px>
+				</a>
+				
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">Surya Coding</a>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="profile.html">Profil <span class="sr-only">(current)</span></a></li>
+					<li><a href="aboutme.html">About Me</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorial <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="html.html">HTML</a></li>
+							<li><a href="css.html">CSS</a></li>
+							<li><a href="js.html">Javascript</a></li>							
+							<li><a href="jq.html">JQuery</a></li>							
+						</ul>
+					</li>
+				</ul>
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" data-toggle="modal" data-target="#modal-login">Login</a></li>					
+					<li><button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#modal-daftar">Daftar</button></li>
+				</ul>
+			</div>
+		</div>
+	</nav>	
+
+	<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Login</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" class="form-control">
+						</div>						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+					<button type="button" class="btn btn-primary">Login</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Daftar</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label>Nama</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" class="form-control">
+						</div>						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+					<button type="button" class="btn btn-primary">Daftar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">			
+		<!-- membuat jumbotron -->
+		<div class="jumbotron">
+			<center>	
+				<div class="bounceIn animated">		
+					<h1>Selamat Datang Di Surya Coding !</h1>
+				</div>
+				<div class="slideInLeft animated">	
+					<p>Tempat Belajar Desain Web Paling Lengkap</p><br/><br/>
+				</div>
+				<div class="bounceInDown animated">
+					<p><a class="btn btn-primary btn-lg" href="ayobelajar.html" role="button">Ayo Belajar !</a></p>
+				</div>
+			</center>
+		</div>
+		<!-- akhir jumbotron -->
+		<div class="col-sm-6 col-md-3 text-justify">
+			<div class="thumbnail">
+				<img src="jq.gif" alt="...">
+				<div class="caption">
+					<h3>Tutorial JQuery</h3>
+					<p>jQuery adalah sebuah library JavaScript. Dalam dunia pemrograman, library adalah kumpulan dari berbagai fungsi ‘siap pakai’ untuk memudahkan pembuatan sebuah aplikasi...</p>
+					<p><a href="jq.html" class="btn btn-primary" role="button">Lihat</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3 text-justify">
+			<div class="thumbnail">
+				<img src="html.png" alt="...">
+				<div class="caption">
+					<h3>Tutorial HTML</h3>
+					<p>HTML adalah singkatan dari Hypertext Markup Language. Disebut hypertext karena di dalam HTML sebuah text biasa dapat berfungsi lain, kita dapat membuatnya menjadi link...</p>
+					<p><a href="html.html" class="btn btn-primary" role="button">Lihat</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3 text-justify">
+			<div class="thumbnail">
+				<img src="css.png" alt="...">
+				<div class="caption">
+					<h3>Tutorial CSS</h3>
+					<p>Dalam bahasa bakunya, seperti di kutip dari wikipedia, CSS adalah “kumpulan kode yang digunakan untuk mendefenisikan desain dari bahasa markup” , dimana bahasa markup...</p>
+					<p><a href="css.html" class="btn btn-primary" role="button">Lihat</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3 text-justify">
+			<div class="thumbnail">
+				<img src="js.jpg" alt="...">
+				<div class="caption">
+					<h3>Tutorial Javascript</h3>
+					<p>JavaScript adalah bahasa pemrograman web yang bersifat Client Side Programming Language. Client Side Programming Language adalah tipe bahasa pemrograman yang...</p>
+					<p><a href="js.html" class="btn btn-primary" role="button">Lihat</a></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<br/>
+	
+	
+	<div class="clearfix"></div>
+	
+	<nav class="navbar navbar-default" style="bottom: 0;margin: 0">
+		<div class="container">	
+			<center>
+				
+				<ul class="nav navbar-nav">
+					<li><a href="#">Copyright @ 2018 Surya Coding. All rights reserved.</a></li>				
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Developed by www.suryacoding.com</a></li>									
+				</ul>
+			</center>		
+		</div>
+		
+	</nav>
+	
+</body>
+</html>

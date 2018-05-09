@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Surya Coding</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.canvasjs.min.js"></script>
+  <link rel="stylesheet" href="css/animate.css">
+  <script src="js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+
+  <script type="text/javascript">
+    $(function () {
+      var options = {
+        title: {
+          text: "Chart Dengan JQUERY"
+        },
+        animationEnabled: true,
+        data: [
+        {
+          type: "spline",
+          dataPoints: [
+          { x: 10, y: 10 },
+          { x: 20, y: 12 },
+          { x: 30, y: 8 },
+          { x: 40, y: 14 },
+          { x: 50, y: 6 },
+          { x: 60, y: 24 },
+          { x: 70, y: -4 },
+          { x: 80, y: 10 }
+          ]
+        }
+        ]
+      };
+
+      $("#chartContainer").CanvasJSChart(options);
+
+    });
+  </script>
+
+  <script>
+   $(document).ready(function() {
+    
+     $("#tombol_app").click(function() {
+       $("#box").append("<p><p>Aku berharap dapat nilai <b>A</b> di Mata Kuliah Praktikum Web, Hehehe...</p></p>");
+     })
+     
+   });
+ </script>
+
+ <script type="text/javascript">
+
+  $(document).ready(function() {
+   
+              // deklarasi
+              var ruang = $("#ruang")[0];
+              var ctx = ruang.getContext("2d");
+              var lebar = $("#ruang").width();
+              var tinggi = $("#ruang").height();
+              
+              var cw = 10;
+              var tekan ;
+              var makanan;
+              var nilai;
+              
+              //membuat cell aray untuk membuat ular
+              var array_ular; 
+              
+              function init() {
+                tekan = "right"; //default direction
+                create_snake();
+                create_makanan(); //membuat makanan untuk ular
+                //nilai game
+                nilai = 0;
+                
+                if (typeof game_loop != "undefined") clearInterval(game_loop);
+                game_loop = setInterval(paint, 60);
+              }
+              
+              init();
+              
+              // membuat ular
+              function create_snake() {
+                // menetapkan jumlah panjang awal ular
+                var length = 5; //panjang ular default
+                array_ular = [];
+                for (var i = length - 1; i >= 0; i--) {
+                  //membuat ular horizontal mulai dari arah kiri
+                  array_ular.push({ x: i, y: 0 });
+                }
+              }
+              
+              //membuat makanan untuk ular
+              function create_makanan() {
+                makanan = {
+                  x: Math.round(Math.random() * (lebar - cw) / cw),
+                  y: Math.round(Math.random() * (tinggi - cw) / cw)
+                };
+              }
+              
+              //pengaturan
+              function paint() {
+                // warna background
+                ctx.fillStyle = "#ecf0f1";
+                ctx.fillRect(0, 0, lebar, tinggi);    
+                ctx.strokeStyle = "#2c3e50";
+                ctx.strokeRect(0, 0, lebar, tinggi);
+                
+                //membuat pergerakan untuk ular
+                var nx = array_ular[0].x;
+                var ny = array_ular[0].y;
+                if (tekan == "right") nx++;
+                else if (tekan == "left") nx--;
+                else if (tekan == "up") ny--;
+                else if (tekan == "down") ny++;
+                
+                //memeriksa tabrakan
+                if (
+                  nx == -1 ||
+                  nx == lebar / cw ||
+                  ny == -1 ||
+                  ny == tinggi / cw ||
+                  cek_tabrakan(nx, ny, array_ular)
+                  ){
+                 
+                //restart game
+              init();
+              return;
+            }
+            
+                //cek jika ular kena makanan/memakan makanan
+                if(nx == makanan.x && ny == makanan.y){
+                 
+                  var ekor = { x: nx, y: ny };
+                  nilai++;
+                  
+                  //membuat makanan yang baru
+                  create_makanan();
+                  
+                } else {
+                  var ekor = array_ular.pop();
+                  ekor.x = nx;
+                  ekor.y = ny;
+                }
+                
+                array_ular.unshift(ekor);
+                
+                for (var i = 0; i < array_ular.length; i++) {
+                  var c = array_ular[i];
+                  paint_cell(c.x, c.y);
+                }
+                
+                paint_cell(makanan.x, makanan.y);    
+                
+                //membuat penilaian skor
+                var nilai_text = "nilai: " + nilai;
+                ctx.fillText(nilai_text, 5, tinggi - 5);
+              }
+              
+              function paint_cell(x, y) {
+                ctx.fillStyle = "#1abc9c";
+                ctx.fillRect(x * cw, y * cw, cw, cw);
+                ctx.strokeStyle = "#ecf0f1";
+                ctx.strokeRect(x * cw, y * cw, cw, cw);
+              }
+              
+              function cek_tabrakan(x, y, array) {
+                for (var i = 0; i < array.length; i++) {
+                  if (array[i].x == x && array[i].y == y) return true;
+                }
+                return false;
+              }
+              
+              //kontrol ular dengan keyboard
+              $(document).keydown(function(e) {
+                var key = e.which;
+                if (key == "37" && tekan != "right") tekan = "left";
+                else if (key == "38" && tekan != "down") tekan = "up";
+                else if (key == "39" && tekan != "left") tekan = "right";
+                else if (key == "40" && tekan != "up") tekan = "down";
+              });
+            });
+
+          </script>
+
+          <style>
+
+          .navbar {
+            margin-bottom: 10px;
+            border-radius: 0;
+          }
+
+          .row.content {height: auto}
+          
+          .sidenav {
+            height: auto;
+          }
+
+          .carousel-control.right, .carousel-control.left {
+            background-image: none;
+            color: #f4511e;
+          }
+
+          .carousel-indicators li {
+            border-color: #f4511e;
+          }
+
+          .carousel-indicators li.active {
+            background-color: #f4511e;
+          }
+
+          .item h4 {
+            font-size: 17px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: normal;
+            margin: 50px 0;
+          }
+
+          .item span {
+            font-style: italic;
+          }
+
+        </style>
+
+      </head>
+
+      <body>
+        
+        <nav class="navbar navbar-inverse">
+          <div class="container"; background: url>
+            
+            <div class="navbar-header">
+              <a class="navbar-brand" href="INDEX.HTML">
+                <img alt="Brand" src="SC.png" height=20px>
+              </a>
+              
+
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html">Surya Coding</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="profile.html">Profil <span class="sr-only">(current)</span></a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorial <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html">CSS</a></li>
+                    <li><a href="js.html">Javascript</a></li>             
+                    <li><a href="jq.html">JQuery</a></li>             
+                  </ul>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" data-toggle="modal" data-target="#modal-login">Login</a></li>         
+                <li><button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#modal-daftar">Daftar</button></li>
+              </ul>
+            </div>
+          </div>
+        </nav>  
+
+        <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Login</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control">
+                  </div>            
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="modal-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Daftar</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control">
+                  </div>            
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Daftar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid text-center">    
+          <div class="row content">
+            <div class="col-sm-1 sidenav text-left">
+              <div class="well">
+                <p><a href="jq.html">jQuery</a></p>
+                <p><a href="html.html">HTML</a></p>
+                <p><a href="css.html">CSS</a></p>
+                <p><a href="js.html">JS</a></p>
+              </div>
+            </div>
+            <div class="col-sm-7 text-justify">
+              <div class="well">
+                <div class="bounceInUp animated">
+                  <p><img src="js2.jpg" alt="..." width="100%"></p>
+                </div>
+                <div class="fadeInLeft animated">
+                  <h1>Pengertian JavaScript</h1>
+                  <p>JavaScript adalah bahasa pemrograman web yang bersifat Client Side Programming Language. Client Side Programming Language adalah tipe bahasa pemrograman yang pemrosesannya dilakukan oleh client. Aplikasi client yang dimaksud merujuk kepada web browser seperti Google Chrome dan Mozilla Firefox. Bahasa pemrograman Client Side berbeda dengan bahasa pemrograman Server Side seperti PHP, dimana untuk server side seluruh kode program dijalankan di sisi server. Untuk menjalankan JavaScript, kita hanya membutuhkan aplikasi text editor dan web browser. JavaScript memiliki fitur: high-level programming language, client-side, loosely tiped dan berorientasi objek.</p>
+                  <p><h2>Fungsi JavaScript Dalam Pemograman Web</h2></p>
+                  <p>JavaScript pada awal perkembangannya berfungsi untuk membuat interaksi antara user dengan situs web menjadi lebih cepat tanpa harus menunggu pemrosesan di web server. Sebelum javascript, setiap interaksi dari user harus diproses oleh web server. Bayangkan ketika kita mengisi form registrasi untuk pendaftaran sebuah situs web, lalu men-klik tombol submit, menunggu sekitar 20 detik untuk website memproses isian form tersebut, dan mendapati halaman yang menyatakan bahwa terdapat kolom form yang masih belum diisi. Untuk keperluan seperti inilah JavaScript dikembangkan. Pemrosesan untuk mengecek apakah seluruh form telah terisi atau tidak, bisa dipindahkan dari web server ke dalam web browser. Dalam perkembangan selanjutnya, JavaScript tidak hanya berguna untuk validasi form, namun untuk berbagai keperluan yang lebih modern. Berbagai animasi untuk mempercantik halaman web, fitur chatting, efek-efek modern, games, semuanya bisa dibuat menggunakan JavaScript. Akan tetapi karena sifatnya yang dijalankan di sisi client yakni di dalam web browser yang digunakan oleh pengunjung situs, user sepenuhnya dapat mengontrol eksekusi JavaScript. Hampir semua web browser menyediakan fasilitas untuk mematikan JavaScript, atau bahkan mengubah kode JavaScript yang ada. Sehingga kita tidak bisa bergantung sepenuhnya kepada JavaScript.</p>
+                  <p><h2>Perkembangan JavaScript Saat Ini</h2></p>
+                  <p>Dalam perkembangannya, JavaScript mengalami permasalahan yang sama seperti kode pemograman web yang bersifat client side seperti CSS, yakni bergantung kepada implementasi web browser. Kode JavaScript yang kita buat, bisa saja tidak bekerja di Internet Explorer, karena web browser tersebut tidak mendukungnya. Sehingga programmer harus bekerja extra untuk membuat kode program agar bisa “mengakali” dukungan dari web browser. Karena hal tersebut, JavaScript pada awalnya termasuk bahasa pemograman yang rumit, karena harus membuat beberapa kode program untuk berbagai web browser. Namun, beberapa tahun belakangan ini, JavaScript kembali bersinar berkat kemudahan yang ditawari oleh komunitas programmer yang membuat library JavaScript seperti jQuery. Library ini memudahkan kita membuat program JavaScript untuk semua web browser, dan membuat fitur-fitur canggih yang sebelumnya membutuhkan ribuan baris kode program menjadi sederhana. Kedepannya, JavaScript akan tetap menjadi kebutuhan programmer, apalagi untuk situs saat ini yang mengharuskan punya banyak fitur modern sebagai standar.</p>
+                </div>
+              </div>  
+            </div>
+            <div class="col-sm-4 sidenav">
+              <div class="well">
+                <!-- <div class="container"> -->
+                  <h2 class="text-center"><i>Tahukah Kamu ???</i></h2>
+                  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li>
+                      <li data-target="#myCarousel" data-slide-to="4"></li>
+                      <li data-target="#myCarousel" data-slide-to="5"></li>
+                      <li data-target="#myCarousel" data-slide-to="6"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <h4>"Website akan diproses berbeda pada setiap web browser"<br><span style="font-style:normal;"></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>"Desain menentukan pada bagian mana user akan fokus di website kamu"<br><span style="font-style:normal;"></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>"Umur website 2 tahun itu sudah dianggap tua"<br><span style="font-style:normal;"></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>"Kode website kamu ternyata membantu untuk menarik perhatian mesin pencari"<br><span style="font-style:normal;"></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>"Gambar dan Video bisa memberikan efek positif dan negatif bagi website"<br><span style="font-style:normal;"></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>"Sebuah desain web yang baik kisaran harganya antara 5jt – 50jt"<br><span style="font-style:normal;"></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>"Desain web responsive dengan desain web mobile itu berbeda"<br><span style="font-style:normal;"></span></h4>
+                      </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="well">
+                  <h><b>Aku Lapar, Beri Aku Makan :(</b></h>
+                  <canvas id="ruang" width="350" height="350"></canvas>
+                  <h><b>Game JQUERY</b></h>
+                </div>
+                <div class="well">
+                  <div id="box">
+                    <h3>Mau Tau Apa Harapanku ???</h3>
+                    <button id="tombol_app">Append</button>
+                  </div>
+                </div>
+                <div class="well">
+                  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <nav class="navbar navbar-default" style="bottom: 0;margin: 0">
+                <div class="container"> 
+                  <center>
+                    
+                    <ul class="nav navbar-nav">
+                      <li><a href="#">Copyright @ 2018 Surya Coding. All rights reserved.</a></li>        
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#">Developed by www.suryacoding.com</a></li>                 
+                    </ul>
+                  </center>   
+                </div>
+                
+              </nav>
+
+            </body>
+            </html>
